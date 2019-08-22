@@ -3,9 +3,58 @@
 <head>
     <title>Exercise 2</title>
 </head>
+<style>
+body {
+	background-image: url("blush.jpg");
+} 
+</style>
 <body>
     <center>
         <h1>Kalkulator</h1>
     </center>
+<center>
+<h4>Simple Kalkulator</h4>
+<input type="text" id="angkaPertama">
+<select id="operator">
+    <option value="+">+</option>
+    <option value="*">*</option>
+    <option value="-">-</option>
+    <option value=":">/</option>
+    <option value="^">^</option>
+</select>
+<input type="text" id="angkaKedua">
+<input type="submit" onclick="kalkulator()" value="=">
+<div id="hasil">0</div>
+</center>
 </body>
+<script language="javascript" type="text/javascript">
+    function kalkulator() {
+        var angkaPertama = parseInt(document.getElementById("angkaPertama").value);
+        var angkaKedua = parseInt(document.getElementById("angkaKedua").value);
+        var op = document.getElementById("operator").value;
+        var hasil = document.getElementById("hasil");
+        var total;
+        if(isNaN(angkaPertama) || isNaN(angkaKedua)){
+            alert('isi form dengan angka!')
+        }
+        else{ if (op == "+") {
+                    total= angkaPertama + angkaKedua;
+        }
+        else if (op == "-") {
+            total = angkaPertama - angkaKedua;
+         }
+        else if(op == "*"){
+            total = angkaPertama * angkaKedua;
+        }
+        
+        else if(op == "/"){
+            total = angkaPertama / angkaKedua;
+        }
+        else if (op == "^"){
+            total = Math.pow(angkaPertama,angkaKedua);
+        }
+        }
+    hasil.textContent = total;
+    }
+</script>
 </html>
